@@ -1,0 +1,29 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+
+.crypto-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+  column-gap: 4%;
+  background-color: #fff;
+  align-items: center;
+  justify-content: center;
+}
+.crypto-box {
+  height: 60%;
+  width: 40%;
+  box-shadow: 5px 5px 5px 5px rgba(51, 51, 51, 0.25);
+
+  background-color: #fff;
+}
