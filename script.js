@@ -13,7 +13,6 @@
 
 // const btn = document.querySelector(".btn");
 // btn.addEventListener("click", getDataFromServer);
-
 const cryptoArray = [
   {
     "Meta Data": {
@@ -1747,7 +1746,7 @@ const cryptoArray = [
 ];
 console.log(cryptoArray);
 
-arr = [2, 15, 23, 11, 32, 123, 32, 10, 23, 0];
+arr = [[1, 20],[2, 25],[3, 21],[4, 30],[5, 40],[6, 13]]
 
 const graphBox = document.querySelector(".graph-box");
 const graphText = document.querySelector(".graph-text");
@@ -1755,27 +1754,43 @@ const graphText = document.querySelector(".graph-text");
 const button = document.querySelector(".btn");
 
 button.addEventListener("click", function(){
+
+  //adding svg to container
   d3.select(".graph-box")
     .append("svg")
-    .style("background-color", "red")
+    //.style("background-color", "red")
     .attr("width", 500)
     .attr("height", 500);
+
+  //setting x scale
+  const scaleX = d3.scaleLinear()
+    .domain([1, d3.max(arr, (d) => d[0]) + 1])
+    .range([25, 475])
   d3.select("svg")
-    .selectAll("rect")
-    .data(arr)
-    .enter()
-    .append("rect")
-    .style("fill", "green")
-    .attr("height", (d) => {
-      return d;
-    })
-    .attr("width", 20)
-    .attr("x", (d, i) => {
-      return i * 25;
-    })
-    .attr("y", (d) => {
-      return 500 - d;
-    })
+    .append("g")
+    .attr("transform", "translate(0, 475)")
+    .call(d3.axisBottom(scaleX));
+
+  //setting y scale
+  const scaleY = d3.scaleLinear()
+    .domain([d3.min(arr, (d) => d[1] - 5), d3.max(arr, (d) => d[1]) + 5])
+    .range([475, 25]);
+  d3.select("svg")
+    .append("g")
+    .attr("transform", "translate(25, 0)")
+    .call(d3.axisLeft(scaleY))
+  
+  //drawing line
+  d3.select("svg")
+    .append("path")
+    .datum(arr)
+    .attr("fill", "none")
+    .attr("stroke", "blue")
+    .attr("stroke-width", 1.5)
+    .attr("d", d3.line()
+      .x((d) => scaleX(d[0]))
+      .y((d) => scaleY(d[1]))
+    );
 });
 //console.log(d3);
 console.log("2");
