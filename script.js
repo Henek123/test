@@ -1,6 +1,6 @@
 // async function getDataFromServer() {
 //   const url =
-//     "https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_WEEKLY&symbol=BTC&market=USD&apikey=KIPI8OWFYIA80UQX";
+//     "https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=BTC&market=USD&apikey=KIPI8OWFYIA80UQX";
 
 //   const res = await axios({
 //     url: url,
@@ -13,7 +13,7 @@
 
 // const btn = document.querySelector(".btn");
 // btn.addEventListener("click", getDataFromServer);
-console.log('hemlo there');
+console.log("hemlo there");
 const cryptoArray = [
   {
     "Meta Data": {
@@ -1748,13 +1748,19 @@ const cryptoArray = [
 console.log(cryptoArray);
 
 arr = [2, 15, 23, 11, 32, 123, 32, 10, 23, 0];
-
+//docelowo ma sie rysowac w ".graph" już nie w ".graph-box" to sb zmień gdzie tam trzeba
 const graphBox = document.querySelector(".graph-box");
 const graphText = document.querySelector(".graph-text");
-
-const button = document.querySelector(".btn");
-
-button.addEventListener("click", function(){
+//tu zmieniłem klase guzika bo innym nadalem poprzednia
+const button = document.querySelector(".call-API");
+//btns
+const btn1Day = document.querySelector(".btn-1day");
+const btn5Day = document.querySelector(".btn-5day");
+const btn1Month = document.querySelector(".btn-1month");
+const btn6Month = document.querySelector(".btn-6month");
+const btn1Year = document.querySelector(".btn-1year");
+//End of btns
+button.addEventListener("click", function () {
   d3.select(".graph-box")
     .append("svg")
     .style("background-color", "red")
@@ -1775,10 +1781,9 @@ button.addEventListener("click", function(){
     })
     .attr("y", (d) => {
       return 500 - d;
-    })
+    });
 });
 //console.log(d3);
 console.log("2");
-
 
 //console.log(graphBox, graphText);

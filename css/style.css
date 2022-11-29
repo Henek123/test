@@ -1,11 +1,21 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: black;
+}
+
 body {
   padding: 0;
   margin: 0;
 }
 
 .btn {
-  margin-left: auto;
-  margin-right: auto;
+  width: auto;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: royalblue;
+  padding: 1em 2em;
+  border-radius: 5px;
 }
 
 .main-container {
@@ -15,11 +25,57 @@ body {
   height: auto;
 }
 
+.top-side {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.nav-bar {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10vh;
+  width: 100%;
+  background-color: #000;
+}
+
+.slider-box {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  background-color: #fff;
+  margin-top: 10vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-items-box {
+  width: 80%;
+  height: 70vh;
+  background-color: #fff;
+  box-shadow: 5px 5px 5px 5px rgba(51, 51, 51, 0.25);
+}
+
+.btn-box {
+  display: flex;
+  flex-direction: row;
+  -moz-column-gap: 5vh;
+       column-gap: 5vh;
+  width: 100%;
+  height: 10vh;
+  background-color: yellow;
+  align-items: center;
+  justify-content: center;
+}
+
 .crypto-container {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   -moz-column-gap: 4%;
        column-gap: 4%;
   background-color: #fff;
@@ -32,4 +88,28 @@ body {
   width: 40%;
   box-shadow: 5px 5px 5px 5px rgba(51, 51, 51, 0.25);
   background-color: #fff;
+}
+
+.graph-box {
+  display: flex;
+  flex-direction: column;
+}
+.graph-box .graph {
+  width: 100%;
+  height: 90%;
+  background-color: tomato;
+}
+.graph-box .graph-box-filter-bar {
+  display: flex;
+  flex-direction: row;
+  -moz-column-gap: 2vh;
+       column-gap: 2vh;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  background-color: yellow;
+}
+.graph-box .graph-box-filter-bar .btn {
+  padding: 0.7vh 2vh;
 }/*# sourceMappingURL=style.css.map */

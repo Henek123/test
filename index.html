@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://d3js.org/d3.v6.min.js"></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,9 +9,31 @@
   </head>
   <body>
     <div class="main-container">
-      <button class="btn">Call API</button>
+      <section class="top-side">
+        <div class="nav-bar"></div>
+        <div class="slider-box">
+          <div class="slider-items-box"></div>
+        </div>
+      </section>
+      <section class="btn-box">
+        <button class="btn">Bitcoin</button>
+        <button class="btn">Ethereum</button>
+        <button class="btn">Cardano</button>
+        <button class="btn">Dogecoin</button
+        ><button class="btn">Polkadot</button>
+        <button class="btn call-api">Call API</button>
+      </section>
       <section class="crypto-container">
-        <div class="graph-box crypto-box"></div>
+        <div class="graph-box crypto-box">
+          <div class="graph">tutaj wykres</div>
+          <div class="graph-box-filter-bar">
+            <button class="btn btn-1day">1 day</button>
+            <button class="btn btn-5day">5 days</button>
+            <button class="btn btn-1month">1 month</button>
+            <button class="btn btn-6month">6 months</button
+            ><button class="btn btn-1year">1 year</button>
+          </div>
+        </div>
         <div class="graph-text crypto-box"></div>
       </section>
     </div>
