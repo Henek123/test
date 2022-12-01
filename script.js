@@ -13,7 +13,9 @@
 
 // const btn = document.querySelector(".btn");
 // btn.addEventListener("click", getDataFromServer);
+
 console.log("hemlo there");
+console.log("hemlo therex2");
 const cryptoArray = [
   {
     "Meta Data": {
