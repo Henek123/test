@@ -13,9 +13,17 @@ body {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  background-color: transparent;
+  padding: 1em 3em;
+  border: 0px;
+  border-radius: 7px;
+  font-weight: 700;
+}
+
+.btn:hover {
+  cursor: pointer;
   background-color: royalblue;
-  padding: 1em 2em;
-  border-radius: 5px;
+  color: white;
 }
 
 .main-container {
@@ -29,7 +37,7 @@ body {
   display: flex;
   width: 100%;
   height: 100vh;
-  background-color: #fff;
+  background-color: #f6f6f6;
 }
 
 .nav-bar {
@@ -39,15 +47,15 @@ body {
   left: 0;
   height: 10vh;
   width: 100%;
-  background-color: #fff;
-  border-bottom: 1px solid black;
+  background-color: #f6f6f6;
+  box-shadow: 5px 5px 5px 5px rgba(51, 51, 51, 0.25);
 }
 
 .slider-box {
   width: 100%;
   height: 90vh;
   display: flex;
-  background-color: #fff;
+  background-color: #f6f6f6;
   margin-top: 10vh;
   align-items: center;
   justify-content: center;
@@ -58,6 +66,7 @@ body {
   height: 70vh;
   background-color: #fff;
   box-shadow: 5px 5px 5px 5px rgba(51, 51, 51, 0.25);
+  border-radius: 10px;
 }
 
 .btn-box {
@@ -67,9 +76,10 @@ body {
        column-gap: 5vh;
   width: 100%;
   height: 10vh;
-  background-color: yellow;
+  background-color: #f6f6f6;
   align-items: center;
   justify-content: center;
+  box-shadow: 5px 5px 5px 5px rgba(51, 51, 51, 0.25);
 }
 
 .crypto-container {
@@ -79,7 +89,7 @@ body {
   height: 90vh;
   -moz-column-gap: 4%;
        column-gap: 4%;
-  background-color: #fff;
+  background-color: #f6f6f6;
   align-items: center;
   justify-content: center;
 }
@@ -88,6 +98,7 @@ body {
   height: 60%;
   width: 40%;
   box-shadow: 5px 5px 5px 5px rgba(51, 51, 51, 0.25);
+  border-radius: 20px;
   background-color: #fff;
 }
 
@@ -98,7 +109,7 @@ body {
 .graph-box .graph {
   width: 100%;
   height: 90%;
-  background-color: tomato;
+  background-color: #fff;
 }
 .graph-box .graph-box-filter-bar {
   display: flex;
@@ -109,7 +120,8 @@ body {
   align-items: center;
   width: 100%;
   height: 10%;
-  background-color: yellow;
+  border-top: 1px solid #f6f6f6;
+  background-color: #fff;
 }
 .graph-box .graph-box-filter-bar .btn {
   padding: 0.7vh 2vh;

@@ -77,6 +77,8 @@ async function drawChart() {
     );
 }
 
+document.addEventListener("DOMContentLoaded", drawChart);
+
 const btn = document.querySelector(".btn");
 const graphBox = document.querySelector(".graph-box");
 const graphText = document.querySelector(".graph-text");
