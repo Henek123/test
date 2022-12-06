@@ -11,42 +11,39 @@ async function getDataFromServer() {
 }
 async function dataToArray() {
   const cryptoArray = [...(await getDataFromServer())];
-  console.log(cryptoArray);
-  let i = 90;
+  let i = 365;
   let arr = [];
   for (let key in cryptoArray[0]["Time Series (Digital Currency Daily)"]) {
+    if(i < 1) break;
     let myDate = new Date(key);
-    console.log(myDate);
-    arr.push([
-      myDate,
-      cryptoArray[0]["Time Series (Digital Currency Daily)"][`${key}`][
-        "1a. open (USD)"
-      ],
-    ]);
+    arr.push([myDate, cryptoArray[0]["Time Series (Digital Currency Daily)"][`${key}`]["1a. open (USD)"],]);
     i--;
-    console.log(arr);
-    return arr;
   }
+  console.log(arr);
+  return arr;
 }
 async function drawChart() {
   let arr = [...(await dataToArray())];
+  console.log(arr);
   //adding svg to container
   d3.select(".graph")
     .append("svg")
     //.style("background-color", "red")
-    .attr("width", 500)
+    .attr("width", 760)
     .attr("height", 450);
 
   //setting x scale
-  const scaleX = d3
-    .scaleTime()
+  const scaleX = d3.scaleTime()
     .domain(d3.extent(arr, (d) => d[0]))
-    .range([50, 450])
+    .range([50, 700])
     .nice();
   d3.select("svg")
     .append("g")
     .attr("transform", "translate(0, 425)")
-    .call(d3.axisBottom(scaleX));
+    .call(d3.axisBottom(scaleX))
+
+  d3.axisBottom()
+    
 
   //setting y scale
   const scaleY = d3
@@ -76,8 +73,6 @@ async function drawChart() {
         .y((d) => scaleY(d[1]))
     );
 }
-
-document.addEventListener("DOMContentLoaded", drawChart);
 
 const btn = document.querySelector(".btn");
 const graphBox = document.querySelector(".graph-box");
