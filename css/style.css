@@ -72,10 +72,11 @@ body {
 .btn-box {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   -moz-column-gap: 5vh;
        column-gap: 5vh;
   width: 100%;
-  height: 10vh;
+  min-height: 10vh;
   background-color: #f6f6f6;
   align-items: center;
   justify-content: center;
@@ -98,7 +99,6 @@ body {
   height: 60%;
   width: 40%;
   box-shadow: 5px 5px 5px 5px rgba(51, 51, 51, 0.25);
-  border-radius: 20px;
   background-color: #fff;
 }
 
@@ -110,19 +110,36 @@ body {
   width: 100%;
   height: 90%;
   background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.graph-box .graph svg {
+  width: -webkit-fit-content auto;
+  width: -moz-fit-content auto;
+  width: fit-content auto;
+  height: -webkit-fit-content auto;
+  height: -moz-fit-content auto;
+  height: fit-content auto;
 }
 .graph-box .graph-box-filter-bar {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   -moz-column-gap: 2vh;
        column-gap: 2vh;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 10%;
+  min-height: 10%;
+  height: auto;
   border-top: 1px solid #f6f6f6;
   background-color: #fff;
 }
 .graph-box .graph-box-filter-bar .btn {
   padding: 0.7vh 2vh;
+}
+
+.graph-text {
+  min-height: 60%;
 }/*# sourceMappingURL=style.css.map */

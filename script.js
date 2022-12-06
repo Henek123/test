@@ -11,12 +11,16 @@ async function getDataFromServer() {
 }
 async function dataToArray() {
   const cryptoArray = [...(await getDataFromServer())];
-  let i = 365;
   let arr = [];
   for (let key in cryptoArray[0]["Time Series (Digital Currency Daily)"]) {
-    if(i < 1) break;
+    if (i < 1) break;
     let myDate = new Date(key);
-    arr.push([myDate, cryptoArray[0]["Time Series (Digital Currency Daily)"][`${key}`]["1a. open (USD)"],]);
+    arr.push([
+      myDate,
+      cryptoArray[0]["Time Series (Digital Currency Daily)"][`${key}`][
+        "1a. open (USD)"
+      ],
+    ]);
     i--;
   }
   console.log(arr);
@@ -25,25 +29,23 @@ async function dataToArray() {
 async function drawChart() {
   let arr = [...(await dataToArray())];
   console.log(arr);
+  document.querySelector(".graph").innerHTML = "";
   //adding svg to container
-  d3.select(".graph")
-    .append("svg")
-    //.style("background-color", "red")
-    .attr("width", 760)
-    .attr("height", 450);
+  d3.select(".graph").append("svg");
+  //.style("background-color", "red")
 
   //setting x scale
-  const scaleX = d3.scaleTime()
+  const scaleX = d3
+    .scaleTime()
     .domain(d3.extent(arr, (d) => d[0]))
     .range([50, 700])
     .nice();
   d3.select("svg")
     .append("g")
     .attr("transform", "translate(0, 425)")
-    .call(d3.axisBottom(scaleX))
+    .call(d3.axisBottom(scaleX));
 
-  d3.axisBottom()
-    
+  d3.axisBottom();
 
   //setting y scale
   const scaleY = d3
@@ -72,6 +74,9 @@ async function drawChart() {
         .x((d) => scaleX(d[0]))
         .y((d) => scaleY(d[1]))
     );
+  d3.select("svg")
+    .attr("viewBox", "0 0 760 450")
+    .attr("preserveAspectRatio", "xMidYMid meet");
 }
 
 const btn = document.querySelector(".btn");
@@ -79,11 +84,35 @@ const graphBox = document.querySelector(".graph-box");
 const graphText = document.querySelector(".graph-text");
 const button = document.querySelector(".call-api");
 
-const btn1Day = document.querySelector(".btn-1day");
-const btn5Day = document.querySelector(".btn-5day");
-const btn1Month = document.querySelector(".btn-1month");
-const btn6Month = document.querySelector(".btn-6month");
-const btn1Year = document.querySelector(".btn-1year");
+const filterFnc = (e) => {
+  if (e.target.matches(".btn-5day")) {
+    i = 5;
+    drawChart();
+  } else if (e.target.matches(".btn-1month")) {
+    i = 30;
+    drawChart();
+  } else if (e.target.matches(".btn-6month")) {
+    i = 180;
+    drawChart();
+  } else if (e.target.matches(".btn-1year")) {
+    i = 365;
+    drawChart();
+  }
+};
 
+async function chooseCryptoFnc(e) {
+  if (e.target.matches(".bitcoin")) {
+  } else if (e.target.matches(".ethereum")) {
+  } else if (e.target.matches(".cardano")) {
+  } else if (e.target.matches(".dogecoin")) {
+  } else if (e.target.matches(".polkadot")) {
+  }
+}
+document
+  .querySelector(".graph-box-filter-bar")
+  .addEventListener("click", filterFnc);
+
+document.querySelector(".btn-box").addEventListener("click", chooseCryptoFnc);
 btn.addEventListener("click", getDataFromServer);
-btn1Year.addEventListener("click", drawChart);
+// Naprawić calla do innych btnow
+// document.addEventListener("DOMContentLoaded", drawChart);
